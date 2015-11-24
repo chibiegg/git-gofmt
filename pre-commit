@@ -1,7 +1,8 @@
 #!/bin/sh
 
 BASEDIR=$(git rev-parse --show-toplevel)
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep '.go$')
+
+files=$(git diff --cached --name-only --diff-filter=ACM | grep '.go$')
 
 for file in $files; do
   gofmt -l -w "${BASEDIR}/${file}"
